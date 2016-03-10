@@ -34,9 +34,7 @@ public class Batalla {
             JOptionPane.showMessageDialog(null,pokenemigo.toString());}
             else{JOptionPane.showMessageDialog(null,"Has derrotado a "+pokenemigo.getNombrePoke());
                 
-                System.out.println(pokmio.getNivel());
-                System.out.println(pokmio.getAtaque());
-                System.out.println(pokmio.getHp());
+                
                 int nuevNiv=pokmio.getNivel();
                 
                 int aux=nuevNiv+1;
@@ -46,11 +44,7 @@ public class Batalla {
                 pokmio.setHp(aux*10);
                 vida1=pokmio.getHp();
                 vida2=pokenemigo.getHp();
-                /***********************************************/
-                System.out.println(pokmio.getNivel());
-                System.out.println(pokmio.getAtaque());
-                System.out.println(pokmio.getHp());
-                /***********************************************/
+                
                 JOptionPane.showMessageDialog(null,pokmio.getNombrePoke()+" Ha subido al nivel "+pokmio.getNivel());
                 yo.capturarPokemon(pokenemigo);
                 break;}
@@ -107,7 +101,7 @@ public class Batalla {
         int opcion;
         
             do {
-                opcion = Integer.parseInt(JOptionPane.showInputDialog("Elija un ataque:\n1. Placaje.\n2." + pokmio.getAtaq2() + "\n"
+                opcion = Integer.parseInt(JOptionPane.showInputDialog("Juagador 1 Elija un ataque:\n1. Placaje.\n2." + pokmio.getAtaq2() + "\n"
                         + "3." + pokmio.getAtaq3() + "\n4." + pokmio.getAtaq4()));
 
             } while (opcion < 1 || opcion > 4);
@@ -135,8 +129,12 @@ public class Batalla {
   
     public void supelea(){
         int opcion;
-                   
-             opcion = (int) (Math.random() * 4)+1;
+        
+            do {
+                opcion = Integer.parseInt(JOptionPane.showInputDialog("Jugador 2 Elija un ataque:\n1. Placaje.\n2." + pokenemigo.getAtaq2() + "\n"
+                        + "3." + pokenemigo.getAtaq3() + "\n4." + pokenemigo.getAtaq4()));
+
+            } while (opcion < 1 || opcion > 4);
 
             switch (opcion) {
                 case 1:
@@ -145,17 +143,14 @@ public class Batalla {
                     break;
                 case 2:
                     pokmio.dañoRecibido(pokenemigo.ataque2());
-                    
                     JOptionPane.showMessageDialog(null,pokenemigo.getNombrePoke()+" Uso "+pokenemigo.getAtaq2());
                     break;
                 case 3:
                     pokmio.dañoRecibido(pokenemigo.ataque3());
-                    
                     JOptionPane.showMessageDialog(null,pokenemigo.getNombrePoke()+" Uso "+pokenemigo.getAtaq3());
                     break;
                 case 4:
                     pokmio.dañoRecibido(pokenemigo.ataque4());
-                    
                     JOptionPane.showMessageDialog(null,pokenemigo.getNombrePoke()+" Uso "+pokenemigo.getAtaq4());
                     break;
             }
